@@ -10,16 +10,16 @@ from telegram import ParseMode, BotCommand
 def start(update, context):
     LOGGER.info('UID: {} - UN: {} - MSG: {}'.format(update.message.chat.id,update.message.chat.username,update.message.text))
     if update.message.chat.type == "private" :
-        sendMessage(f"Hey <b>{update.message.chat.first_name}</b>. Welcome to <b>LoaderX Bot</b>", context.bot, update)
+        sendMessage(f"Hey <b>{update.message.chat.first_name}</b>. Welcome to <b>Google Drive Search Bot</b>", context.bot, update)
     else :
-        sendMessage("Am alive :)", context.bot, update)
+        sendMessage("I am alive :)", context.bot, update)
 
 @run_async
 def log(update, context):
     sendLogFile(context.bot, update)
 
 botcmnd = [
-  BotCommand(f'{BotCommands.ListCommand}', ' 🔎 Search on team drive✨'),
+  BotCommand(f'{BotCommands.ListCommand}', ' 🔎 Search item on all asigned Drives'),
   BotCommand(f'{BotCommands.LogCommand}','📄 Get Logs [owner only]'),
 
   ]
@@ -35,7 +35,7 @@ def main():
     bot.set_my_commands(botcmnd)
 
     updater.start_polling()
-    LOGGER.info("Yeah am running!")
+    LOGGER.info("Yeah I am running!")
     updater.idle()
 
 main()
